@@ -1,23 +1,50 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Index from '../views/index.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'index',
+    component: Index
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login.vue')
+  },
+  {
+    path: '/applyfor',
+    name: 'applyfor',
+    component: () => import('../views/apply-for.vue')
+  },
+  {
+    path: '/applylist',
+    name: 'applylist',
+    component: () => import('../views/apply-records.vue')
+  },
+  {
+    path: '/applydetail',
+    name: 'applydetail',
+    component: () => import('../views/apply-detail.vue')
+  },
+  {
+    path: '/usercenter',
+    name: 'usercenter',
+    component: () => import('../views/user-center.vue')
+  },
+  {
+    path: '/rules',
+    name: 'rules',
+    component: () => import('../views/rules.vue')
+  },
+  {
+    path: '/aboutus',
+    name: 'aboutus',
+    component: () => import('../views/about-us.vue')
+  },
 ]
 
 const router = new VueRouter({
@@ -25,5 +52,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  if(to.name != 'login'&& to.name != 'rules') {
+    const userid = localStorage.getItem('userid')
+    const user = JSON.parse(localStorage.getItem('user'))
+    if(userid && user && user.username) {
+      next()
+    } else {
+      next('/login')
+    }
+  } else {
+    next()
+  }
+})
 export default router
