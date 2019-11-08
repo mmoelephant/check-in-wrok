@@ -113,34 +113,33 @@ export default {
             })
         },
         logout(){
-            let _that = this
-            let data = {}
-            let data2 = {}
-            let commondata = this.$store.state.login.commondata
-            for(var i in commondata){
-                data[i] = commondata[i]
-            }
-            data.timestamp = Math.round(new Date().getTime() / 1000).toString()
-            data.nonce_str = new Date().getTime() + "" + Math.floor(Math.random()*899 +100)
-            if(localStorage.getItem('userid')){
-                data.user_id = localStorage.getItem('userid')
-            }else{
-                data.user_id = '0'
-            }
-            if(localStorage.getItem('clientid')){
-                data.client_id = localStorage.getItem('clientid')
-            }
-            if(localStorage.getItem('accesstoken')){
-                data.access_token = localStorage.getItem('accesstoken')
-            }
-            data2 = datawork(data)
             this.$dialog.confirm({
                 title: '提示',
                 message: '确认退出登录吗？'
             }).then(() => {
                 this.loading = true
+                let _that = this
+                let data = {}
+                let data2 = {}
+                let commondata = this.$store.state.login.commondata
+                for(var i in commondata){
+                    data[i] = commondata[i]
+                }
+                data.timestamp = Math.round(new Date().getTime() / 1000).toString()
+                data.nonce_str = new Date().getTime() + "" + Math.floor(Math.random()*899 +100)
+                if(localStorage.getItem('userid')){
+                    data.user_id = localStorage.getItem('userid')
+                }else{
+                    data.user_id = '0'
+                }
+                if(localStorage.getItem('clientid')){
+                    data.client_id = localStorage.getItem('clientid')
+                }
+                if(localStorage.getItem('accesstoken')){
+                    data.access_token = localStorage.getItem('accesstoken')
+                }
+                data2 = datawork(data)
                 this.$api.log_out(data2).then(v => {
-                    // console.log(v)
                     if(v.data.errcode == 0){
                         this.loading = false
                         localStorage.removeItem('userid')
