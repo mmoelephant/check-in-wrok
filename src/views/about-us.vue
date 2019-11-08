@@ -23,27 +23,27 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .rule-page
-    font-size 28px /*px*/
+    font-size 14px /*px*/
     color #666
 .rulebox
     width 100%
     background #ffffff
-    padding 72px 32px
+    padding 36px 16px
     box-sizing border-box
     box-shadow 0px -1px 0px 0px rgba(226,225,230,1)
-    margin-top 20px
+    margin-top 10px
     .rule1,.rule2
         span
-            font-size 40px /*px*/
+            font-size 18px /*px*/
             color #333
             font-weight bold
         p
-            margin-top 24px
-            line-height 40px /*px*/
+            margin-top 12px
+            line-height 20px /*px*/
     .rule2
-        margin-top 52px
+        margin-top 26px
         p
-            line-height 36px /*px*/
+            line-height 18px /*px*/
         p+p
             margin-top 0
 </style>

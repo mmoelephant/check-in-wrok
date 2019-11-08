@@ -35,7 +35,7 @@
         <p>当前没有记录哦</p>
     </div>
     <van-overlay :show="loading">
-        <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
+        <van-loading style="position:absolute;top:50%;margin-top:-20px;left:50%;margin-left:-20px" vertical>
             请稍候！
         </van-loading>
     </van-overlay>
@@ -101,7 +101,7 @@ export default {
             data.status = this.tabOn
             data2 = datawork(data)
             this.$api.get_record_list(data2).then(v => {
-                console.log(v)
+                // console.log(v)
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.recordlist = v.data.data.data
@@ -132,31 +132,31 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .record-page
-    font-size 24px /*px*/
+    font-size 12px /*px*/
     color #a6a6a6
 .record-type
-    margin 40px 0 20px 0
+    margin 20px 0 10px 0
     display flex
     justify-content center
     div
-        width 344px
-        height 60px
-        border 2px #E0E0E0 solid /*no*/
+        width 172px
+        height 30px
+        border 1px #E0E0E0 solid /*no*/
         box-sizing border-box
-        border-radius 32px 0 0 32px
+        border-radius 16px 0 0 16px
         text-align center
-        font-family ziti3
-        line-height 58px
+        // font-family ziti3
+        line-height 30px
     div+div
         border-left none
-        border-radius 0 32px 32px 0
+        border-radius 0 16px 16px 0
     div.active
         background #FFE26D
         color #333333
 .tabs
-    height 88px
+    height 44px
     background #ffffff
-    padding 0 40px
+    padding 0 20px
     box-sizing border-box
     box-shadow 0px 1px 0px 0px rgba(226,225,230,1)
     display flex
@@ -164,18 +164,18 @@ export default {
     div
         width 33.33333%
         text-align center
-        line-height 88px /*px*/
+        line-height 44px /*px*/
     div.on
-        border-bottom 2px #728CFD solid /*no*/
+        border-bottom 1px #728CFD solid /*no*/
         box-sizing border-box
         color #6d85ff
 
 .record-list
     background #ffffff
-    padding-left 32px
-    margin-top 20px
+    padding-left 16px
+    margin-top 10px
     .record-item
-        padding 24px 32px 24px 0
+        padding 12px 16px 12px 0
         border-bottom 1px #e9e8eb solid /*no*/
         box-sizing border-box
         .item-head
@@ -183,14 +183,14 @@ export default {
             justify-content space-between
             align-items center
             .what-state,.what-state2,.what-state3
-                width 98px
-                height 32px
-                border 2px #17C8A5 solid /*no*/
-                border-radius 20px
+                width 50px
+                height 16px
+                border 1px #17C8A5 solid /*no*/
+                border-radius 10px
                 box-sizing border-box
-                font-size 20px /*px*/
+                font-size 10px /*px*/
                 color #17C8A5
-                line-height 28px /*px*/
+                line-height 14px /*px*/
                 text-align center
             .what-state2
                 border-color #d9d9d9 !important 
@@ -199,32 +199,28 @@ export default {
                 border-color #FA6A32 !important 
                 color #FA6A32 !important
             .what-record
-                margin-right 20px
-                font-size 28px /*px*/
+                margin-right 10px
+                font-size 14px /*px*/
                 color #333
-                font-family ziti3
                 +span
-                    font-size 20px /*px*/
+                    font-size 10px /*px*/
                     color #666
-                    font-family ziti2
         .item-detail
-            margin-top 14px
+            margin-top 6px
             display flex
             justify-content space-between
             align-items flex-end
-            line-height 36px
+            line-height 18px
             .d-right-time
-                margin-right 8px
-                font-size 48px /*px*/
+                margin-right 4px
+                font-size 24px /*px*/
                 color #666
                 font-family ziti1
-                +span
-                    font-family ziti3
 
 .nodata
-    margin-top 160px
+    margin-top 80px
     text-align center
     img
-        width 152px
+        width 76px
 
 </style>

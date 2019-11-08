@@ -53,7 +53,7 @@
         </div>
     </div>
     <van-overlay :show="loading">
-        <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
+        <van-loading style="position:absolute;top:50%;margin-top:-20px;left:50%;margin-left:-20px" vertical>
             请稍候！
         </van-loading>
     </van-overlay>
@@ -97,7 +97,7 @@ export default {
             data.id = aa
             data2 = datawork(data)
             this.$api.get_record_detail(data2).then(v => {
-                console.log(v)
+                // console.log(v)
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.recordetail = v.data.data.data
@@ -125,30 +125,28 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .detail-page
-    font-size 32px /*px*/
+    font-size 16px /*px*/
     color #333
-    font-family ziti3
 .block1
     width 100%
     background #fff
-    padding 0 0 0 32px
+    padding 0 0 0 16px
     border 1px rgba(226,225,230,1) solid /*no*/
     border-left none
     border-right none
     box-sizing border-box
-    margin 32px 0 24px 0
+    margin 16px 0 12px 0
     .detailItem
-        height 88px
-        padding-right 32px
+        height 44px
+        padding-right 16px
         border-bottom 1px #F0F0F0 solid /*no*/
         box-sizing border-box
         display flex
         justify-content space-between
         align-items center
         span
-            font-size 28px /*px*/
+            font-size 14px /*px*/
             color #666
-            font-family ziti2
         span.state1
             color #17C8A5
         span.state2
@@ -161,16 +159,13 @@ export default {
         border none
         height auto
         p
-            margin-top 24px
+            margin-top 12px
 .block1.middle
-    margin 24px 0 24px 0
+    margin 12px 0 12px 0
 .reasonBox
-    min-height 120px
-    padding 20px 20px 32px 20px
+    min-height 60px
+    padding 10px 10px 16px 10px
     box-sizing border-box
-    font-size 28px /*px*/
+    font-size 14px /*px*/
     color #a6a6a6
-    font-family ziti2
-
-
 </style>

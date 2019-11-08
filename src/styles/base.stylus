@@ -3,33 +3,33 @@
     font-family: ziti1;
     src: url('../assets/DIN-Regular.otf')
 }
-@font-face
-{
-    font-family: ziti2;
-    src: url('../assets/PingFang Regular.ttf')
-}
-@font-face
-{
-    font-family: ziti3;
-    src: url('../assets/PingFang Medium.ttf')
-}
+// @font-face
+// {
+//     font-family: ziti2;
+//     src: url('../assets/PingFang Regular.ttf')
+// }
+// @font-face
+// {
+//     font-family: ziti3;
+//     src: url('../assets/PingFang Medium.ttf')
+// }
 body
     margin 0
     background #F3F2F5
-    font-family ziti2
+    // font-family ziti2
 p
     margin 0
     padding 0
 input::-webkit-input-placeholder
     color #ccc
-    font-size 24px /*px*/
+    font-size 12px /*px*/
 input:-moz-placeholder
     color #ccc
-    font-size 24px /*px*/
+    font-size 12px /*px*/
 
 input::-moz-placeholder
     color #ccc
-    font-size 24px /*px*/
+    font-size 12px /*px*/
 input:-ms-input-placeholder
     color #ccc
-    font-size 24px /*px*/
+    font-size 12px /*px*/

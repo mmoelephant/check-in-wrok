@@ -26,13 +26,16 @@
             <van-icon name="arrow" />
         </div>
     </div>
-    <div class="block1" v-show="this.user">
+    <div class="logout" v-show="user" @click="logout">
+        退出登录
+    </div>
+    <!-- <div class="block1" v-show="this.user">
         <div class="detailItem logout" @click="logout">
             退出登录
         </div>
-    </div>
+    </div> -->
     <van-overlay :show="loading">
-        <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
+        <van-loading style="position:absolute;top:50%;margin-top:-20px;left:50%;margin-left:-20px" vertical>
             请稍候！
         </van-loading>
     </van-overlay>
@@ -185,65 +188,64 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .user-page
-    font-size 32px /*px*/
+    font-size 16px /*px*/
     color #333
-    font-family ziti3
 .usercard
     width 92%
-    height 280px
+    height 140px
     background #ffffff
-    padding 40px
+    padding 20px
     box-sizing border-box
-    box-shadow 0px 12px 36px 0px rgba(90,87,95,0.14)
-    border-radius 16px
-    margin 40px auto
+    box-shadow 0px 6px 18px 0px rgba(90,87,95,0.14)
+    border-radius 8px
+    margin 20px auto
     display flex
     justify-content space-between
     .gongsi
-        font-size 28px /*px*/
+        font-size 14px /*px*/
         color #a6a6a6
         font-weight bold
     .name
-        font-size 36px /*px*/
+        font-size 18px /*px*/
         font-weight bold
-        margin 68px 0 12px 0
+        margin 34px 0 6px 0
     .job
-        font-size 28px /*px*/
+        font-size 14px /*px*/
         color #666
-        font-family ziti2
     img
-        width 88px
+        width 44px
 .block1
     width 100%
     background #fff
-    padding 0 0 0 32px
+    padding 0 0 0 16px
     border 1px rgba(226,225,230,1) solid /*no*/
     border-left none
     border-right none
     box-sizing border-box
-    margin 32px 0 24px 0
+    margin 16px 0 12px 0
     .detailItem
-        height 88px
-        padding-right 32px
+        height 44px
+        padding-right 16px
         border-bottom 1px #F0F0F0 solid /*no*/
         box-sizing border-box
         display flex
         justify-content space-between
         align-items center
         span
-            font-size 28px /*px*/
+            font-size 14px /*px*/
             color #666
-            font-family ziti2
         span.state1
             color #6d85ff
     .detailItem.noborder
         border none
-    .detailItem.logout
-        border none
-        display block
-        color #D42121
-        text-align center
-        line-height 88px /*px*/
+.logout
+    height 44px
+    background #ffffff
+    border 1px rgba(226,225,230,1) solid /*no*/
+    margin-top 26px
+    color #D42121
+    text-align center
+    line-height 44px /*px*/
 </style>
 <style lang="stylus">
 .van-icon.van-icon-arrow

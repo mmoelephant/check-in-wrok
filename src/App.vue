@@ -50,7 +50,7 @@
 		</div>
 	</div>
     <van-overlay :show="loading">
-        <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
+        <van-loading style="position:absolute;top:50%;margin-top:-20px;left:50%;margin-left:-20px" vertical>
             正在加载
         </van-loading>
     </van-overlay>
@@ -164,32 +164,32 @@ export default {
 <style lang="stylus" scoped>
 .header
 	width 100%
-	height 88px
+	height 44px
 	background #ffffff
-	font-size 36px /*px*/
+	font-size 18px /*px*/
 	color #1a1a1a
 	font-weight bold
 	text-align center
-	line-height 88px /*px*/
+	line-height 44px /*px*/
 	position fixed
 	top 0
 	left 0
 	z-index 2
 .main-body
 	width 100%
-	padding-bottom 120px
+	padding-bottom 60px
 	box-sizing border-box
-	margin-top 88px
+	margin-top 44px
 	display flex
 	flex-direction column
 .footer
 	width 100%
-	height 98px
+	height 49px
 	background #ffffff
 	border-top 1px rgba(219,218,223,1) solid /*no*/
-	font-size 20px /*px*/
+	font-size 10px /*px*/
 	color #A6A6A6
-	line-height 20px /*px*/
+	line-height 10px /*px*/
 	text-align center
 	display flex
 	position fixed
@@ -201,8 +201,8 @@ export default {
 		flex-direction column
 		align-items center
 		img
-			width 48px
-			margin 12px 0 8px 0
+			width 24px
+			margin 6px 0 4px 0
 	div.foorer-bar-item
 		color #6d85ff !important
 </style>

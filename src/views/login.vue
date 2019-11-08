@@ -17,11 +17,11 @@
         <div class="login-btn" @click="login">登 录</div>
     </div>
     <div class="notes">
-        <span>加班调休系统v1.0</span>
+        <span>·&nbsp&nbsp加班调休系统v1.0&nbsp&nbsp·</span>
         <!-- <span @click="seerule">查看申请规则</span> -->
     </div>
     <van-overlay :show="loading">
-        <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
+        <van-loading style="position:absolute;top:50%;margin-top:-20px;left:50%;margin-left:-20px" vertical>
             正在提交
         </van-loading>
     </van-overlay>
@@ -73,6 +73,7 @@ export default {
             data2 = datawork(data)
             let me = this
             this.$api.login(data2).then(v => {
+                // console.log(v)
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.$store.commit('login/SET_USER_ID', v.data.data.id)
@@ -133,17 +134,17 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .touxiang
-    margin 140px 0 60px 0
+    margin 70px 0 30px 0
     text-align center
     img
-        width 144px
+        width 72px
 .login-inputs
     width 100%
     background #fff
-    padding-left 48px
+    padding-left 24px
     box-sizing border-box
     box-shadow 0px 1px 0px 0px rgba(226,225,230,1), 0px -1px 0px 0px rgba(226,225,230,1)
-    font-size 28px /*px*/
+    font-size 14px /*px*/
     color #666
     div
         display flex
@@ -152,40 +153,39 @@ export default {
         box-sizing border-box
         input
             width 80%
-            height 98px
+            height 49px
             background rgba(0,0,0,0)
             border none
             // border 1px red solid
             outline none
-            text-indent 28px
-            font-size 28px /*px*/
+            text-indent 14px
+            font-size 14px /*px*/
             
     div+div
         border none
 .login-btn
     width 87%
-    height 98px
+    height 49px
     background #6d85ff
-    border-radius 52px
-    box-shadow 0px 5px 12px 0px rgba(98,127,255,0.46)
-    margin 64px auto 0
-    font-size 32px /*px*/
+    border-radius 26px
+    box-shadow 0px 3px 6px 0px rgba(98,127,255,0.46)
+    margin 32px auto 0
+    font-size 16px /*px*/
     color #ffffff
-    font-family ziti3
+    // font-family ziti3
     text-align center
-    line-height 98px /*px*/
+    line-height 49px /*px*/
 
 .notes
-    margin-top 56px
-    font-size 24px /*px*/
+    margin-top 28px
+    font-size 12px /*px*/
     color #a6a6a6
     text-align center
     span
-        display inline-block
-        padding 0 20px
-        border-right 1px #e0e0e0 solid /*no*/
+        // display inline-block
+        padding 0 10px
         box-sizing border-box
-    span + span
-        border none
-        color #333333
+    // span + span
+    //     border none
+    //     color #333333
 </style>

@@ -303,90 +303,86 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .apply-page
-    font-size 32px /*px*/
+    font-size 15px /*px*/
     color #333
-    font-family ziti3
 .apply-type,.chosedate
     width 100%
-    height 88px
+    height 44px
     background #ffffff
-    padding 0 32px
+    padding 0 16px
     box-sizing border-box
     box-shadow 0px 1px 0px 0px rgba(226,225,230,1), 0px -1px 0px 0px rgba(226,225,230,1)
-    margin 32px 0 24px 0
+    margin 16px 0 12px 0
     display flex
     justify-content space-between
     align-items center
 .apply-time,.apply-reason
     width 100%
     background #fff
-    padding 0 0 0 32px
+    padding 0 0 0 16px
     box-sizing border-box
     box-shadow 0px 1px 0px 0px rgba(226,225,230,1), 0px -1px 0px 0px rgba(226,225,230,1)
 .chosedate
-    padding 0 32px 0 0
+    padding 0 16px 0 0
     border-bottom 1px #f0f0f0 solid /*no*/
     box-shadow none !important
     margin 0 !important
     p
         display flex
         align-items center
-        font-size 28px /*px*/
+        font-size 14px /*px*/
         color #a6a6a6
-        font-family ziti2
 .apply-reason
-    padding 24px 32px
-    margin-top 24px
+    padding 12px 16px
+    margin-top 12px
     input
         display block
         border none
         outline none
-        font-size 28px /*px*/
-        line-height 36px /*px*/
-        font-family ziti2
+        font-size 14px /*px*/
+        line-height 18px /*px*/
 .beizhu
-    padding 0 0 0 32px
+    padding 0 0 0 16px
     box-sizing border-box
-    margin-top 20px
-    font-size 20px /*px*/
+    margin-top 10px
+    font-size 10px /*px*/
     color #a6a6a6
-    font-family ziti2
     span
         color #333
 .submit-btn
     width 87%
-    height 98px
+    height 49px
     background #6d85ff
-    border-radius 52px
-    box-shadow 0px 5px 12px 0px rgba(98,127,255,0.46)
-    margin 64px auto 0
+    border-radius 26px
+    box-shadow 0px 3px 6px 0px rgba(98,127,255,0.46)
+    margin 32px auto 0
     color #ffffff
     text-align center
-    line-height 98px /*px*/
+    line-height 49px /*px*/
 </style>
 <style lang="stylus">
 .van-radio-group
     display flex
     align-items center
     div+div
-        margin-left 48px
+        margin-left 24px
     .van-radio__icon
-        font-size 28px
-        line-height 32px
+        font-size 14px
+        line-height 16px
         .van-icon
-            width 32px
-            height 32px
+            width 16px
+            height 16px
             border-color #CECECE
     .van-radio__label
-        font-size 28px
+        font-size 14px
         color #333
 .van-icon.van-icon-arrow
-    margin 4px -8px 0 0
+    margin 2px -4px 0 0
 .van-cell
-    padding 20px
+    padding 10px
 .van-cell.van-field,.van-cell__value--alone
-    font-size 28px
+    font-size 14px
     color #333333
-    line-height 32px
+    line-height 16px
 
 </style>

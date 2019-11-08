@@ -20,7 +20,7 @@
             </p>
         </div>
         <div class="record-list">
-            <div class="record-item" v-for="item in indexrecords" :key="item.id">
+            <div class="record-item" v-for="item in indexrecords" :key="item.id" @click="todetail(item.id)">
                 <div class="item-head">
                     <div>
                         <span class="what-record">{{item.typeName?item.typeName:'加班'}}</span>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <van-overlay :show="loading">
-        <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
+        <van-loading style="position:absolute;top:50%;margin-top:-20px;left:50%;margin-left:-20px" vertical>
             请稍候！
         </van-loading>
     </van-overlay>
@@ -117,31 +117,34 @@ export default {
         },
         seemore(){
             this.$router.push('applylist')
+        },
+        todetail(aa){
+            this.$router.push({name:'applydetail',query:{id:aa}})
         }
     }
 }
 </script>
 <style lang="stylus" scoped>
 .index-page
-    font-size 24px /*px*/
+    font-size 12px /*px*/
     color #a6a6a6
 .ban
     width 100%
-    height 228px
+    height 114px
     background url(../../public/img/shouyebg.png) no-repeat left top
     background-size contain
-    margin-bottom 76px
+    margin-bottom 38px
     position relative
 .ban-info
     width 92%
-    height 180px
+    height 90px
     background #ffffff
-    box-shadow 0px 8px 24px 0px rgba(90,87,95,0.06)
-    border-radius 16px
-    padding 48px 0
+    box-shadow 0px 2px 6px 0px rgba(90,87,95,0.06)
+    border-radius 8px
+    padding 24px 0
     box-sizing border-box
     position absolute
-    top 80px
+    top 40px
     left 50%
     margin-left -46%
     display flex
@@ -152,43 +155,40 @@ export default {
         align-items center
         text-align center
 .tiao
-    margin 0 72px
+    margin 0 36px
 .info-time
     color #333
-    font-family ziti3
     span
-        font-size 54px /*px*/
+        font-size 28px /*px*/
         font-family ziti1
 .remain
     span
         color #6d85ff
-
 .latest
     width 100%
     background #ffffff
-    padding 0 0 0 32px
+    padding 0 0 0 16px
     box-sizing border-box
     .l-tilte
         width 100%
-        height 80px
+        height 40px
         border-bottom 1px #f0f0f0 solid /*no*/
         box-sizing border-box
         display flex
         justify-content space-between
         align-items center
-        font-family ziti3
         span
-            font-size 28px /*px*/
+            font-size 14px /*px*/
             color #666666
         p
-            margin-right 32px
+            margin-right 16px
             display flex
             align-items center
             span
-                font-size 24px /*px*/
+                font-size 12px /*px*/
                 color #a6a6a6
     .record-item
-        padding 24px 32px 24px 0
+        padding 12px 16px 12px 0
         border-bottom 1px #e9e8eb solid /*no*/
         box-sizing border-box
         .item-head
@@ -196,14 +196,14 @@ export default {
             justify-content space-between
             align-items center
             .what-state,.what-state2,.what-state3
-                width 98px
-                height 32px
-                border 2px #17C8A5 solid /*no*/
-                border-radius 20px
+                width 49px
+                height 16px
+                border 1px #17C8A5 solid /*no*/
+                border-radius 10px
                 box-sizing border-box
-                font-size 20px /*px*/
+                font-size 10px /*px*/
                 color #17C8A5
-                line-height 28px /*px*/
+                line-height 14px /*px*/
                 text-align center
             .what-state2
                 border-color #d9d9d9 !important 
@@ -212,29 +212,25 @@ export default {
                 border-color #FA6A32 !important 
                 color #FA6A32 !important
             .what-record
-                margin-right 20px
-                font-size 28px /*px*/
+                margin-right 10px
+                font-size 14px /*px*/
                 color #333
-                font-family ziti3
                 +span
-                    font-size 20px /*px*/
+                    font-size 10px /*px*/
                     color #666
-                    font-family ziti2
         .item-detail
-            margin-top 12px
+            margin-top 6px
             display flex
             justify-content space-between
             align-items flex-end
-            line-height 36px /*px*/
+            line-height 18px /*px*/
             .d-right-time
-                margin-right 8px
-                font-size 48px /*px*/
+                margin-right 2px
+                font-size 24px /*px*/
                 color #666
                 font-family ziti1
-                +span
-                    font-family ziti3
 </style>
 <style lang="stylus">
 .van-icon.van-icon-arrow
-    margin 0 -8px 0 0
+    margin 0 -4px 0 0
 </style>

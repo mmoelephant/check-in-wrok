@@ -32,7 +32,7 @@ module.exports = {
             .use('px2rem')
                 .loader('px2rem-loader')
                 .options({
-                    remUnit: 75
+                    remUnit: 37.5
                 })
     },
     pwa: {
