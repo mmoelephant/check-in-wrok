@@ -113,68 +113,61 @@ export default {
             })
         },
         logout(){
-            this.$dialog.confirm({
-                title: '提示',
-                message: '确认退出登录吗？'
-            }).then(() => {
-                this.loading = true
-                let _that = this
-                let data = {}
-                let data2 = {}
-                let commondata = this.$store.state.login.commondata
-                for(var i in commondata){
-                    data[i] = commondata[i]
-                }
-                data.timestamp = Math.round(new Date().getTime() / 1000).toString()
-                data.nonce_str = new Date().getTime() + "" + Math.floor(Math.random()*899 +100)
-                if(localStorage.getItem('userid')){
-                    data.user_id = localStorage.getItem('userid')
+            this.loading = true
+            let _that = this
+            let data = {}
+            let data2 = {}
+            let commondata = this.$store.state.login.commondata
+            for(var i in commondata){
+                data[i] = commondata[i]
+            }
+            data.timestamp = Math.round(new Date().getTime() / 1000).toString()
+            data.nonce_str = new Date().getTime() + "" + Math.floor(Math.random()*899 +100)
+            if(localStorage.getItem('userid')){
+                data.user_id = localStorage.getItem('userid')
+            }else{
+                data.user_id = '0'
+            }
+            if(localStorage.getItem('clientid')){
+                data.client_id = localStorage.getItem('clientid')
+            }
+            if(localStorage.getItem('accesstoken')){
+                data.access_token = localStorage.getItem('accesstoken')
+            }
+            data2 = datawork(data)
+            this.$api.log_out(data2).then(v => {
+                if(v.data.errcode == 0){
+                    this.loading = false
+                    localStorage.removeItem('userid')
+                    this.$store.commit('login/SET_USER_ID', '')
+                    localStorage.removeItem('user')
+                    this.$store.commit('login/SET_USER_INFO', '')
+                    this.$toast({
+                        message: '退出成功！',
+                        icon:'success',
+                        duration:1000
+                    })
+                    setTimeout(() => {
+                        _that.$router.push('/login')
+                    }, 1000);
+                }else if(v.data.errcode == 1104){
+                    let _that = this
+                    getToken(commondata)
+                    setTimeout(() => {
+                        if(localStorage.getItem('tokenDone')){
+                             _that.logout()
+                        }
+                    },1000);
                 }else{
-                    data.user_id = '0'
+                    this.loading = false
+                    this.$toast({
+                        message: v.data.errmsg,
+                        icon:'fail',
+                        mask:true,
+                        duration:1000
+                    }) 
                 }
-                if(localStorage.getItem('clientid')){
-                    data.client_id = localStorage.getItem('clientid')
-                }
-                if(localStorage.getItem('accesstoken')){
-                    data.access_token = localStorage.getItem('accesstoken')
-                }
-                data2 = datawork(data)
-                this.$api.log_out(data2).then(v => {
-                    if(v.data.errcode == 0){
-                        this.loading = false
-                        localStorage.removeItem('userid')
-                        this.$store.commit('login/SET_USER_ID', '')
-                        localStorage.removeItem('user')
-                        this.$store.commit('login/SET_USER_INFO', '')
-                        this.$toast({
-                            message: '退出成功！',
-                            icon:'success',
-                            duration:1000
-                        })
-                        setTimeout(() => {
-                            _that.$router.push('/login')
-                        }, 1000);
-                    }else if(v.data.errcode == 1104){
-                        let _that = this
-                        getToken(commondata)
-                        setTimeout(() => {
-                            if(localStorage.getItem('tokenDone')){
-                                _that.logout()
-                            }
-                        },1000);
-                    }else{
-                        this.loading = false
-                        this.$toast({
-                            message: v.data.errmsg,
-                            icon:'fail',
-                            mask:true,
-                            duration:1000
-                        }) 
-                    }
-                }) 
-            }).catch(() => {
-                // on cancel取消
-            });
+            }) 
         },
         toRule(){
             this.$router.push('/rules')

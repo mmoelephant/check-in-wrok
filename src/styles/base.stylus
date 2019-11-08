@@ -33,3 +33,32 @@ input::-moz-placeholder
 input:-ms-input-placeholder
     color #ccc
     font-size 12px /*px*/
+
+.van-picker-column
+    font-size 16px /*px*/!important
+
+.van-picker-column__wrapper
+    line-height 44px /*px*/ !important
+.van-ellipsis.van-picker-column__item
+    height 44px !important
+
+.van-loading
+    color #ffffff !important
+    font-size 14px !important
+.van-loading__spinner
+    width 30px !important
+    height 30px !important
+.van-loading__text
+    font-size 14px !important
+    color #ffffff !important
+.van-toast
+    width 90px !important
+    max-width 70% !important
+    min-height 90px !important
+    padding 16px !important 
+    font-size 14px !important
+    color #ffffff !important
+    line-height 20px !important
+
+.van-toast__icon
+    font-size 40px
