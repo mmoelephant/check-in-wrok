@@ -33,13 +33,24 @@ input::-moz-placeholder
 input:-ms-input-placeholder
     color #ccc
     font-size 12px /*px*/
-
+// .van-picker__columns
+//     height 220px !important
 .van-picker-column
     font-size 16px /*px*/!important
-
-.van-picker-column__wrapper
+.van-picker__toolbar
+    height 44px !important
     line-height 44px /*px*/ !important
-.van-ellipsis.van-picker-column__item
+.van-picker__cancel, .van-picker__confirm
+    padding 0 16px !important
+    font-size 14px /*px*/ !important
+    line-height 44px /*px*/ !important
+// .van-picker-column__wrapper
+//     line-height 44px /*px*/ !important
+.van-picker-column__item
+    height 44px !important
+    line-height 44px
+
+.van-hairline-unset--top-bottom.van-picker__frame
     height 44px !important
 
 .van-loading
@@ -59,6 +70,6 @@ input:-ms-input-placeholder
     font-size 14px !important
     color #ffffff !important
     line-height 20px !important
-
 .van-toast__icon
     font-size 40px
+
