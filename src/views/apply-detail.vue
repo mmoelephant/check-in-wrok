@@ -22,7 +22,7 @@
         <div class="detailItem">
             <p>加班日期</p>
             <span>
-                {{recordetail != {} && recordetail.addtime?recordetail.addtime.split(' ')[0]:'0000-00-00'}}
+                {{recordetail != {} && recordetail.dates?recordetail.dates:'0000-00-00'}}
             </span>
         </div>
         <div class="detailItem">
@@ -97,6 +97,7 @@ export default {
             data.id = aa
             data2 = datawork(data)
             this.$api.get_record_detail(data2).then(v => {
+                console.log(v)
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.recordetail = v.data.data.data

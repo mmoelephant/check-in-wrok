@@ -110,7 +110,6 @@ export default {
             })
         },
         logout(){
-            this.loading = true
             let _that = this
             let data = {}
             let data2 = {}
@@ -132,40 +131,48 @@ export default {
                 data.access_token = localStorage.getItem('accesstoken')
             }
             data2 = datawork(data)
-            this.$api.log_out(data2).then(v => {
-                // console.log(v)
-                if(v.data.errcode == 0){
-                    this.loading = false
-                    localStorage.removeItem('userid')
-                    this.$store.commit('login/SET_USER_ID', '')
-                    localStorage.removeItem('user')
-                    this.$store.commit('login/SET_USER_INFO', '')
-                    this.$toast({
-                        message: '退出成功！',
-                        icon:'success',
-                        duration:1000
-                    })
-                    setTimeout(() => {
-                        _that.$router.push('/login')
-                    }, 1000);
-                }else if(v.data.errcode == 1104){
-                    let _that = this
-                    getToken(commondata)
-                    setTimeout(() => {
-                        if(localStorage.getItem('tokenDone')){
-                            _that.logout()
-                        }
-                    },1000);
-                }else{
-                    this.loading = false
-                    this.$toast({
-                        message: v.data.errmsg,
-                        icon:'fail',
-                        mask:true,
-                        duration:1000
-                    }) 
-                }
-            }) 
+            this.$dialog.confirm({
+                title: '提示',
+                message: '确认退出登录吗？'
+            }).then(() => {
+                this.loading = true
+                this.$api.log_out(data2).then(v => {
+                    // console.log(v)
+                    if(v.data.errcode == 0){
+                        this.loading = false
+                        localStorage.removeItem('userid')
+                        this.$store.commit('login/SET_USER_ID', '')
+                        localStorage.removeItem('user')
+                        this.$store.commit('login/SET_USER_INFO', '')
+                        this.$toast({
+                            message: '退出成功！',
+                            icon:'success',
+                            duration:1000
+                        })
+                        setTimeout(() => {
+                            _that.$router.push('/login')
+                        }, 1000);
+                    }else if(v.data.errcode == 1104){
+                        let _that = this
+                        getToken(commondata)
+                        setTimeout(() => {
+                            if(localStorage.getItem('tokenDone')){
+                                _that.logout()
+                            }
+                        },1000);
+                    }else{
+                        this.loading = false
+                        this.$toast({
+                            message: v.data.errmsg,
+                            icon:'fail',
+                            mask:true,
+                            duration:1000
+                        }) 
+                    }
+                }) 
+            }).catch(() => {
+                // on cancel取消
+            });
         },
         toRule(){
             this.$router.push('/rules')
@@ -228,10 +235,11 @@ export default {
             color #666
             font-family ziti2
         span.state1
-            color #79A8FF
+            color #6d85ff
     .detailItem.noborder
         border none
     .detailItem.logout
+        border none
         display block
         color #D42121
         text-align center

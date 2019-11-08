@@ -19,6 +19,10 @@
 		'关于我们':
 		''
 		}}
+		<div style="position:absolute;left:12px;top:0;" @click="goback">
+			<van-icon name="arrow-left" v-show="route.name == 'rules' || route.name == 'aboutus'" style="margin-top:14px"/>
+		</div>
+		
 	</div>
 	<div class="main-body">
 		<router-view></router-view>
@@ -150,6 +154,9 @@ export default {
                     })
 				}
 			})
+		},
+		goback(){
+			this.$router.go(-1)
 		}
 	}
 }
@@ -197,5 +204,5 @@ export default {
 			width 48px
 			margin 12px 0 8px 0
 	div.foorer-bar-item
-		color #728CFD !important
+		color #6d85ff !important
 </style>

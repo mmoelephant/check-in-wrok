@@ -53,8 +53,8 @@
         <van-field v-model="message" rows="4" autosize type="textarea" placeholder="请输入申请原因"/>
     </div>
     <div class="beizhu">
-        还不清楚加班/调休申报规则？
-        <span @click="seerule">查看申报规则</span>
+        还不清楚加班/调休申请规则？
+        <span @click="seerule">查看申请规则</span>
     </div>
     <div class="submit-btn" @click="submitApply">
         确认提交
@@ -356,7 +356,7 @@ export default {
 .submit-btn
     width 87%
     height 98px
-    background #728CFD
+    background #6d85ff
     border-radius 52px
     box-shadow 0px 5px 12px 0px rgba(98,127,255,0.46)
     margin 64px auto 0

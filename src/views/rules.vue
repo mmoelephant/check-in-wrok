@@ -2,7 +2,7 @@
 <div class="rule-page">
     <div class="rulebox">
         <div class="rule1">
-            <span>加班/调休申报规则</span>
+            <span>加班/调休申请规则</span>
             <p>当审批中的加班申请通过后，会在次日核对加班情况、校验加班市场。若加班期间没有正常打卡，会被记录为加班异常</p>
         </div>
         <div class="rule2">

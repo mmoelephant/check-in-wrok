@@ -17,8 +17,8 @@
         <div class="login-btn" @click="login">登 录</div>
     </div>
     <div class="notes">
-        <span>行列科技加班申报系统v1.0</span>
-        <span @click="seerule">查看申报规则</span>
+        <span>行列科技加班申请系统v1.0</span>
+        <span @click="seerule">查看申请规则</span>
     </div>
     <van-overlay :show="loading">
         <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
@@ -142,6 +142,7 @@ export default {
     background #fff
     padding-left 48px
     box-sizing border-box
+    box-shadow 0px 1px 0px 0px rgba(226,225,230,1), 0px -1px 0px 0px rgba(226,225,230,1)
     font-size 28px /*px*/
     color #666
     div
@@ -150,8 +151,11 @@ export default {
         border-bottom 1px #f0f0f0 solid /*no*/
         box-sizing border-box
         input
+            width 80%
             height 98px
+            background rgba(0,0,0,0)
             border none
+            // border 1px red solid
             outline none
             text-indent 28px
             font-size 28px /*px*/
@@ -161,7 +165,7 @@ export default {
 .login-btn
     width 87%
     height 98px
-    background #728CFD
+    background #6d85ff
     border-radius 52px
     box-shadow 0px 5px 12px 0px rgba(98,127,255,0.46)
     margin 64px auto 0
@@ -172,16 +176,15 @@ export default {
     line-height 98px /*px*/
 
 .notes
-    height 136px
+    margin-top 56px
     font-size 24px /*px*/
     color #a6a6a6
     text-align center
     span
         display inline-block
-        height 136px
         padding 0 20px
+        border-right 1px #e0e0e0 solid /*no*/
         box-sizing border-box
-        line-height 136px /*px*/
     span + span
         border none
         color #333333

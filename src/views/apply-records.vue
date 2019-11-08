@@ -101,6 +101,7 @@ export default {
             data.status = this.tabOn
             data2 = datawork(data)
             this.$api.get_record_list(data2).then(v => {
+                console.log(v)
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.recordlist = v.data.data.data
@@ -157,6 +158,7 @@ export default {
     background #ffffff
     padding 0 40px
     box-sizing border-box
+    box-shadow 0px 1px 0px 0px rgba(226,225,230,1)
     display flex
     align-items center
     div
@@ -166,7 +168,7 @@ export default {
     div.on
         border-bottom 2px #728CFD solid /*no*/
         box-sizing border-box
-        color #728CFD
+        color #6d85ff
 
 .record-list
     background #ffffff

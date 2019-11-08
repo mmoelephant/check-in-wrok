@@ -24,7 +24,7 @@
                 <div class="item-head">
                     <div>
                         <span class="what-record">{{item.typeName?item.typeName:'加班'}}</span>
-                        <span class="what-time">{{item.addtime?item.addtime:'0000-00-00'}}</span>
+                        <span class="what-time">{{item.dates?item.dates:'0000-00-00'}}</span>
                     </div>
                     <div :class="item.status && item.status == 1?'what-state':item.status && item.status == 2?'what-state2':'what-state3'">
                         {{item.statusName?item.statusName:'待审批'}}
@@ -161,7 +161,7 @@ export default {
         font-family ziti1
 .remain
     span
-        color #79A8FF
+        color #6d85ff
 
 .latest
     width 100%

@@ -35,6 +35,15 @@ module.exports = {
                     remUnit: 75
                 })
     },
+    pwa: {
+        iconPaths: {
+          favicon32: './public/faviconico',
+          favicon16: './public/faviconico',
+          appleTouchIcon: './public/faviconico',
+          maskIcon: './public/faviconico',
+          msTileImage: './public/faviconico'
+        }
+    },
     // configureWebpack: config => {
     //     require('vux-loader').merge(config, {
     //         options: {},
