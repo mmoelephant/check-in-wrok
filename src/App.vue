@@ -20,7 +20,7 @@
 		''
 		}}
 		<div style="position:absolute;left:12px;top:0;" @click="goback">
-			<van-icon name="arrow-left" v-show="route.name == 'rules' || route.name == 'aboutus'" style="margin-top:14px"/>
+			<van-icon name="arrow-left" v-show="route.name == 'rules' || route.name == 'aboutus' || route.name == 'applydetail'" style="margin-top:14px"/>
 		</div>
 		
 	</div>

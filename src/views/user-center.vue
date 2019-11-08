@@ -26,8 +26,8 @@
             <van-icon name="arrow" />
         </div>
     </div>
-    <div class="block1" v-show="this.user" @click="logout">
-        <div class="detailItem logout">
+    <div class="block1" v-show="this.user">
+        <div class="detailItem logout" @click="logout">
             退出登录
         </div>
     </div>

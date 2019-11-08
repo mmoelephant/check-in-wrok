@@ -17,8 +17,8 @@
         <div class="login-btn" @click="login">登 录</div>
     </div>
     <div class="notes">
-        <span>行列科技加班申请系统v1.0</span>
-        <span @click="seerule">查看申请规则</span>
+        <span>加班调休系统v1.0</span>
+        <!-- <span @click="seerule">查看申请规则</span> -->
     </div>
     <van-overlay :show="loading">
         <van-loading style="position:absolute;top:50%;margin-top:-15px;left:50%;margin-left:-15px" vertical>
