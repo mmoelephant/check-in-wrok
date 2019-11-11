@@ -111,7 +111,15 @@ export default {
 					},1000);
 				}else if(v.data.errmsg == '没有登录'){
                     this.loading = false
-                    this.$router.push('/login')
+                    this.$toast({
+                        message: v.data.errmsg,
+                        icon:'fail',
+                        mask:true,
+                        duration:800
+                    })
+                    setTimeout(() => {
+                        _that.$router.push('/login')
+                    }, 800);
                 }else{
                     this.loading = false
                     this.$toast({
@@ -147,7 +155,6 @@ export default {
             }
             data2 = datawork(data)
             this.$api.log_out(data2).then(v => {
-                let _that = this
                 if(v.data.errcode == 0){
                     this.loading = false
                     localStorage.removeItem('userid')
@@ -179,7 +186,15 @@ export default {
 					},1000);
 				}else if(v.data.errmsg == '没有登录'){
                     this.loading = false
-                    this.$router.push('/login')
+                    this.$toast({
+                        message: v.data.errmsg,
+                        icon:'fail',
+                        mask:true,
+                        duration:800
+                    })
+                    setTimeout(() => {
+                        _that.$router.push('/login')
+                    }, 800);
                 }else{
                     this.loading = false
                     this.$toast({

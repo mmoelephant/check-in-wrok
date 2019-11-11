@@ -92,7 +92,7 @@ export default {
                     // token失效，重新获取token
                     getToken(commondata)
                     setTimeout(() => {
-                        if(localStorage.getItem(tokenDone)){
+                        if(localStorage.getItem('tokenDone')){
                             me.login()
                         }
                     }, 1000);
@@ -106,7 +106,15 @@ export default {
 					}, 1000);
 				}else if(v.data.errmsg == '没有登录'){
                     this.loading = false
-                    this.$router.push('/login')
+                    this.$toast({
+                        message: v.data.errmsg,
+                        icon:'fail',
+                        mask:true,
+                        duration:800
+                    })
+                    setTimeout(() => {
+                        me.$router.push('/login')
+                    }, 800);
                 }else{
                     this.loading = false
                     this.$toast({

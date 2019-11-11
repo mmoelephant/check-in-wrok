@@ -73,7 +73,6 @@ export default {
 		}
 	},
 	created(){
-		console.log('这里也是系统')
 		this.loading = true
 		let data = {}
 		let data2 = {}
