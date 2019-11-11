@@ -59,6 +59,7 @@
 <script>
 import {datawork} from './plugins/datawork.js'
 import { getToken } from './plugins/gettoken'
+import {getCilentId} from './plugins/getclientid'
 export default {
 	data(){
 		return {
@@ -72,6 +73,7 @@ export default {
 		}
 	},
 	created(){
+		console.log('这里也是系统')
 		this.loading = true
 		let data = {}
 		let data2 = {}
@@ -131,6 +133,7 @@ export default {
 	methods:{
 		get_client(data){
 			this.$api.get_client(data).then(v => {
+				let _that = this
 				if(v.data.errcode == 0){
 					this.loading = false
 					localStorage.setItem('clientid',v.data.data.client_id)
@@ -138,13 +141,19 @@ export default {
 					localStorage.setItem('accesstoken',v.data.data.access_token)
 					this.$store.commit('login/SET_ACCESS_TOKEN', v.data.data.access_token)
 				}else if(v.data.errcode == 1104){
-					let _that = this
 					getToken(_that.commondata)
 					setTimeout(() => {
 						if(localStorage.getItem('tokenDone')){
 							_that.get_client()
 						}
 					}, 1000);
+				}else if(v.data.errcode == 1103){
+					getCilentId(_that.commondata)
+					setTimeout(() => {
+						if(localStorage.getItem('done')){
+							_that.get_client()
+						}
+					}, );
 				}else{
 					this.loading = false
                     this.$toast({

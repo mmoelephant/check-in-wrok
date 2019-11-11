@@ -17,6 +17,9 @@ import { Popup } from 'vant'
 import { Toast } from 'vant'
 import { Loading } from 'vant'
 import { Overlay } from 'vant'
+import { PullRefresh } from 'vant'
+
+Vue.use(PullRefresh)
 Vue.use(Overlay)
 Vue.use(Loading)
 Vue.use(Toast)

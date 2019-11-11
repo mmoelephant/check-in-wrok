@@ -39,6 +39,8 @@
             请稍候！
         </van-loading>
     </van-overlay>
+    <!-- <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+    </van-pull-refresh> -->
 </div>
 </template>
 <script>
@@ -59,7 +61,8 @@ export default {
             ],
             tabOn:1,
             recordlist:[],
-            loading:false
+            loading:false,
+            // isLoading:false
         }
     },
     created(){
@@ -126,7 +129,9 @@ export default {
         },
         todetail(aa){
             this.$router.push({name:'applydetail',query:{id:aa}})
-        }
+        },
+        // onRefresh() {
+        // }
     } 
 }
 </script>
