@@ -153,7 +153,7 @@ export default {
 						if(localStorage.getItem('done')){
 							_that.get_client()
 						}
-					}, );
+					},1000);
 				}else{
 					this.loading = false
                     this.$toast({

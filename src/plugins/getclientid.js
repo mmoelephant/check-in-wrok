@@ -23,8 +23,8 @@ export function getCilentId(data){
     getClientData2 = datawork(getClientData)
     api.get_client(getClientData2).then(v => {
         if(v.data.errcode == 0 && v.data.errmsg == 'ok'){
-            console.log(v.data.data.client_id)
-            console.log('在插件里面重新获取了client_id')
+            // console.log(v.data.data.client_id)
+            // console.log('在插件里面重新获取了client_id')
             localStorage.setItem('clientid',v.data.data.client_id)
             $store.commit('login/SET_CLIENT_ID', v.data.data.client_id)
             localStorage.setItem('accesstoken',v.data.data.access_token)

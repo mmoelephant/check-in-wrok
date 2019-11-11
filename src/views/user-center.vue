@@ -44,6 +44,7 @@
 <script>
 import {datawork} from '../plugins/datawork.js'
 import { getToken } from '../plugins/gettoken'
+import {getCilentId} from '../plugins/getclientid'
 export default {
     data(){
         return {
@@ -89,19 +90,26 @@ export default {
             }
             data2 = datawork(data)
             this.$api.get_user_info(data2).then(v => {
-                // console.log(v)
+                let _that = this
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.userinfos = v.data.data
                 }else if(v.data.errcode == 1104){
-                    let _that = this
                     getToken(commondata)
                     setTimeout(() => {
                         if(localStorage.getItem('tokenDone')){
                             _that.get_user_info()
                         }
                     },1000);
-                }else{
+                }else if(v.data.errcode == 1103){
+                    // clientid失效重新获取
+					getCilentId(commondata)
+					setTimeout(() => {
+						if(localStorage.getItem('done')){
+							_that.get_user_info()
+						}
+					},1000);
+				}else{
                     this.loading = false
                     this.$toast({
                         message: v.data.errmsg,

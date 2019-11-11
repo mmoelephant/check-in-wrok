@@ -30,6 +30,7 @@
 <script>
 import {datawork} from '../plugins/datawork.js'
 import { getToken } from '../plugins/gettoken'
+import {getCilentId} from '../plugins/getclientid'
 export default {
     data(){
         return {
@@ -73,7 +74,6 @@ export default {
             data2 = datawork(data)
             let me = this
             this.$api.login(data2).then(v => {
-                // console.log(v)
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.$store.commit('login/SET_USER_ID', v.data.data.id)
@@ -96,7 +96,15 @@ export default {
                             me.login()
                         }
                     }, 1000);
-                }else{
+                }else if(v.data.errcode == 1103){
+                    // clientid失效重新获取
+					getCilentId(commondata)
+					setTimeout(() => {
+						if(localStorage.getItem('done')){
+							me.login()
+						}
+					}, 1000);
+				}else{
                     this.loading = false
                     this.$toast({
                         message: v.data.errmsg,

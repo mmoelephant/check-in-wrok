@@ -46,6 +46,7 @@
 <script>
 import {datawork} from '../plugins/datawork.js'
 import { getToken } from '../plugins/gettoken'
+import {getCilentId} from '../plugins/getclientid'
 export default {
     data(){
         return {
@@ -104,19 +105,25 @@ export default {
             data.status = this.tabOn
             data2 = datawork(data)
             this.$api.get_record_list(data2).then(v => {
-                // console.log(v)
+                let _that = this
                 if(v.data.errcode == 0){
                     this.loading = false
                     this.recordlist = v.data.data.data
                 }else if(v.data.errcode == 1104){
-                    let _that = this
                     getToken(commondata)
                     setTimeout(() => {
                         if(localStorage.getItem('tokenDone')){
                             _that.get_list()
                         }
                     }, 1000);
-                }else{
+                }else if(v.data.errcode == 1103){
+					getCilentId(commondata)
+					setTimeout(() => {
+						if(localStorage.getItem('done')){
+							_that.get_list()
+						}
+					}, 1000);
+				}else{
                     this.loading = false
                     this.$toast({
                         message: v.data.errmsg,

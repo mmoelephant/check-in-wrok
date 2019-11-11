@@ -78,6 +78,7 @@
 <script>
 import {datawork} from '../plugins/datawork.js'
 import { getToken } from '../plugins/gettoken'
+import {getCilentId} from '../plugins/getclientid'
 export default {
     data(){
         return {
@@ -243,7 +244,14 @@ export default {
                             _that.submitApply()
                         }
                     }, 1000);
-                }else{
+                }else if(v.data.errcode == 1103){
+					getCilentId(commondata)
+					setTimeout(() => {
+						if(localStorage.getItem('done')){
+							_that.submitApply()
+						}
+					}, 1000);
+				}else{
                     this.loading = false
                     this.$toast({
                         message: v.data.errmsg,
@@ -386,5 +394,4 @@ export default {
     font-size 14px
     color #333333
     line-height 16px
-
 </style>
