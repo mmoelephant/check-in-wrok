@@ -3,7 +3,7 @@ module.exports = {
     autoprefixer: {},
     "postcss-px2rem-exclude": {
       remUnit: 37.5,
-      exclude: /node_modules/i
+      exclude: /node_modules|vant/i
       // |vant
     }
   }

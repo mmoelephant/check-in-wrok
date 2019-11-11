@@ -367,6 +367,7 @@ export default {
     div+div
         margin-left 24px
     .van-radio__icon
+        height 18px
         font-size 14px
         line-height 16px
         .van-icon
@@ -375,7 +376,8 @@ export default {
             border-color #CECECE
     .van-radio__label
         font-size 14px
-        color #333
+        color #333333
+        line-height 14px
 .van-icon.van-icon-arrow
     margin 2px -4px 0 0
 .van-cell

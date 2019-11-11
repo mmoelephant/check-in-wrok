@@ -3,20 +3,9 @@
     font-family: ziti1;
     src: url('../assets/DIN-Regular.otf')
 }
-// @font-face
-// {
-//     font-family: ziti2;
-//     src: url('../assets/PingFang Regular.ttf')
-// }
-// @font-face
-// {
-//     font-family: ziti3;
-//     src: url('../assets/PingFang Medium.ttf')
-// }
 body
     margin 0
     background #F3F2F5
-    // font-family ziti2
 p
     margin 0
     padding 0
@@ -26,15 +15,13 @@ input::-webkit-input-placeholder
 input:-moz-placeholder
     color #ccc
     font-size 12px /*px*/
-
 input::-moz-placeholder
     color #ccc
     font-size 12px /*px*/
 input:-ms-input-placeholder
     color #ccc
     font-size 12px /*px*/
-// .van-picker__columns
-//     height 220px !important
+
 .van-picker-column
     font-size 16px /*px*/!important
 .van-picker__toolbar
@@ -44,14 +31,6 @@ input:-ms-input-placeholder
     padding 0 16px !important
     font-size 14px /*px*/ !important
     line-height 44px /*px*/ !important
-// .van-picker-column__wrapper
-//     line-height 44px /*px*/ !important
-.van-picker-column__item
-    height 44px !important
-    line-height 44px
-
-.van-hairline-unset--top-bottom.van-picker__frame
-    height 44px !important
 
 .van-loading
     color #ffffff !important
