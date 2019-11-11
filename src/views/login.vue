@@ -39,6 +39,8 @@ export default {
             loading:false
         }
     },
+    created(){
+    },
     components: {
     },
     methods:{
@@ -59,7 +61,7 @@ export default {
             }else{
                 data.user_id = '0'
                 this.$store.commit('login/SET_USER_ID', '')
-                this.$store.commit('login/SET_USER_INFO', '')
+                this.$store.commit('login/SET_USER_INFO', {})
                 localStorage.removeItem('userid')
                 localStorage.removeItem('user')
             }
@@ -106,15 +108,11 @@ export default {
 					}, 1000);
 				}else if(v.data.errmsg == '没有登录'){
                     this.loading = false
-                    this.$toast({
-                        message: v.data.errmsg,
-                        icon:'fail',
-                        mask:true,
-                        duration:800
-                    })
-                    setTimeout(() => {
-                        me.$router.push('/login')
-                    }, 800);
+                    this.$store.commit('login/SET_USER_ID', '')
+                    this.$store.commit('login/SET_USER_INFO', {})
+                    localStorage.removeItem('userid')
+                    localStorage.removeItem('user')
+                    this.login()
                 }else{
                     this.loading = false
                     this.$toast({

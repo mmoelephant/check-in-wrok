@@ -107,7 +107,7 @@ export default {
 		}else{
 			data.user_id = '0'
             this.$store.commit('login/SET_USER_ID', '')
-			this.$store.commit('login/SET_USER_INFO', '')
+			this.$store.commit('login/SET_USER_INFO', {})
             localStorage.removeItem('userid')
 			localStorage.removeItem('user')
 		}
