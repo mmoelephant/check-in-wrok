@@ -52,17 +52,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-router.beforeEach((to, from, next) => {
-  if(to.name != 'login'&& to.name != 'rules') {
-    const userid = localStorage.getItem('userid')
-    const user = JSON.parse(localStorage.getItem('user'))
-    if(userid && user && user.username) {
-      next()
-    } else {
-      next('/login')
-    }
-  } else {
-    next()
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if(to.name != 'login'&& to.name != 'rules') {
+//     const userid = localStorage.getItem('userid')
+//     const user = JSON.parse(localStorage.getItem('user'))
+//     if(userid && user && user.username) {
+//       next()
+//     } else {
+//       next('/login')
+//     }
+//   } else {
+//     next()
+//   }
+// })
 export default router

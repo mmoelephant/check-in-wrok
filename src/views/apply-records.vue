@@ -123,7 +123,10 @@ export default {
 							_that.get_list()
 						}
 					}, 1000);
-				}else{
+				}else if(v.data.errmsg == '没有登录'){
+                    this.loading = false
+                    this.$router.push('/login')
+                }else{
                     this.loading = false
                     this.$toast({
                         message: v.data.errmsg,

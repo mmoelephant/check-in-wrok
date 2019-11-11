@@ -109,7 +109,10 @@ export default {
 							_that.get_user_info()
 						}
 					},1000);
-				}else{
+				}else if(v.data.errmsg == '没有登录'){
+                    this.loading = false
+                    this.$router.push('/login')
+                }else{
                     this.loading = false
                     this.$toast({
                         message: v.data.errmsg,
@@ -144,6 +147,7 @@ export default {
             }
             data2 = datawork(data)
             this.$api.log_out(data2).then(v => {
+                let _that = this
                 if(v.data.errcode == 0){
                     this.loading = false
                     localStorage.removeItem('userid')
@@ -159,13 +163,23 @@ export default {
                         _that.$router.push('/login')
                     }, 1000);
                 }else if(v.data.errcode == 1104){
-                    let _that = this
                     getToken(commondata)
                     setTimeout(() => {
                         if(localStorage.getItem('tokenDone')){
                              _that.logout()
                         }
                     },1000);
+                }else if(v.data.errcode == 1103){
+                    // clientid失效重新获取
+					getCilentId(commondata)
+					setTimeout(() => {
+						if(localStorage.getItem('done')){
+							_that.logout()
+						}
+					},1000);
+				}else if(v.data.errmsg == '没有登录'){
+                    this.loading = false
+                    this.$router.push('/login')
                 }else{
                     this.loading = false
                     this.$toast({
