@@ -53,7 +53,7 @@ const router = new VueRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
-  if(to.name != 'login'&& to.name != 'rules') {
+  if(to.name != 'login') {
     const userid = localStorage.getItem('userid')
     const user = JSON.parse(localStorage.getItem('user'))
     if(userid && user && user.username) {
